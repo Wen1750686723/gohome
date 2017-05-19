@@ -52,6 +52,12 @@ import (
 	"encoding/pem"
 	"errors"
 ) // 加密
+/**
+ 	* @access  publicKey 公钥
+	* @access  origData  原始数据
+	* @return  []byte    加密后的数据
+	* @return  error     是否有错误
+*/
 func RsaEncrypt(publicKey []byte, origData []byte) ([]byte, error) {
 	block, _ := pem.Decode(publicKey)
 	if block == nil {
@@ -65,7 +71,13 @@ func RsaEncrypt(publicKey []byte, origData []byte) ([]byte, error) {
 	return rsa.EncryptPKCS1v15(rand.Reader, pub, origData)
 }
 
-// 解密
+/**
+    *解密
+ 	* @access  publicKey 私钥
+	* @access  origData  原始数据
+	* @return  []byte    解密后的数据
+	* @return  error     是否有错误
+*/
 func RsaDecrypt(privateKey []byte, ciphertext []byte) ([]byte, error) {
 	block, _ := pem.Decode(privateKey)
 	if block == nil {

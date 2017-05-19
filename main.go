@@ -2,10 +2,19 @@ package main
 
 import (
 	"fmt"
-	"test/lwb_httprequest"
+	"test/lwb_json"
 )
 
 func main() {
-	data, _ := lwb_httprequest.Httppost("http://www.baidu.com", "")
-	fmt.Print(data)
+	st := &lwb_json.Student{
+		"Xiao Ming",
+		16,
+		true,
+		[]string{"Math", "English", "Chinese"},
+		9.99,
+	}
+	student, _ := lwb_json.Encode(st)
+	fmt.Println(student)
+	sts, _ := lwb_json.Decode(student)
+	sts.ShowStu()
 }

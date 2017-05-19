@@ -19,9 +19,19 @@ import (
 type conn struct {
 }
 
+/**
+    *初始化结构体
+	* @return  *conn     返回结构体
+*/
 func Init() *conn {
 	return new(conn)
 }
+
+/**
+    *输出
+	* @main  origData  原始数据
+	* @return  *conn     返回结构体
+*/
 func (d *conn) Print() error {
 	fmt.Println("成功")
 	return nil
