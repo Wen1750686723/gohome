@@ -1,11 +1,9 @@
 package main
 
 import (
-	"fmt"
-	"test/lwb_encode"
+	"test/lwb_io"
 )
 
 func main() {
-	fmt.Println(lwb_encode.Base64Encode("ss"))
-	fmt.Println(lwb_encode.Base64Decode(lwb_encode.Base64Encode("ss")))
+	lwb_io.Writefile(0)
 }
