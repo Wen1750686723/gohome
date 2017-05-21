@@ -6,12 +6,8 @@ package lwb_json
 //$Author: liuwenbohhh $
 //$Id: Lwb_json 17155 2017-02-06 06:29:05Z $
 //import (
-//	"encoding/json"
-//	"fmt"
 //	"test/lwb_json"
 //)
-//con := lwb_test.Init()
-//con.Print()
 //st := &lwb_json.Student{
 //	"Xiao Ming",
 //	16,
@@ -19,32 +15,10 @@ package lwb_json
 //	[]string{"Math", "English", "Chinese"},
 //	9.99,
 //}
-//fmt.Println("before JSON encoding :")
-//st.ShowStu()
-
-//b, err := json.Marshal(st)
-//if err != nil {
-//	fmt.Println("encoding faild")
-//} else {
-//	fmt.Println("encoded data : ")
-//	fmt.Println(b)
-//	fmt.Println(string(b))
-//}
-//ch := make(chan string, 1)
-//go func(c chan string, str string) {
-//	c <- str
-//}(ch, string(b))
-//strData := <-ch
-//fmt.Println("--------------------------------")
-//stb := &lwb_json.Student{}
-//stb.ShowStu()
-//err = json.Unmarshal([]byte(strData), &stb)
-//if err != nil {
-//	fmt.Println("Unmarshal faild")
-//} else {
-//	fmt.Println("Unmarshal success")
-//	stb.ShowStu()
-//}
+//student, _ := lwb_json.Encode(st)
+//fmt.Println(student)
+//sts, _ := lwb_json.Decode(student)
+//sts.ShowStu()
 import (
 	"encoding/json"
 	"fmt"

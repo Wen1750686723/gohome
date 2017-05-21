@@ -2,19 +2,10 @@ package main
 
 import (
 	"fmt"
-	"test/lwb_json"
+	"test/lwb_encode"
 )
 
 func main() {
-	st := &lwb_json.Student{
-		"Xiao Ming",
-		16,
-		true,
-		[]string{"Math", "English", "Chinese"},
-		9.99,
-	}
-	student, _ := lwb_json.Encode(st)
-	fmt.Println(student)
-	sts, _ := lwb_json.Decode(student)
-	sts.ShowStu()
+	fmt.Println(lwb_encode.Base64Encode("ss"))
+	fmt.Println(lwb_encode.Base64Decode(lwb_encode.Base64Encode("ss")))
 }

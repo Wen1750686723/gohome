@@ -1,8 +1,8 @@
-//conv处理类库（类库）
+//cache处理类库（类库）
 //版权所有 2017 文搏，并保留所有权利。
 //网站地址: http://www.widerwill.com；
 //$Author: liuwenbohhh $
-//$Id: Lwb_conv 17155 2017-02-06 06:29:05Z $
+//$Id: Lwb_cache 17155 2017-02-06 06:29:05Z $
 //
 // bm, err := cache.NewCache("memory", `{"interval":60}`)
 //
@@ -13,7 +13,6 @@
 //	bm.IsExist("astaxie")
 //	bm.Delete("astaxie")
 //
-//  more docs http://beego.me/docs/module/cache.md
 package lwb_cache
 
 import (

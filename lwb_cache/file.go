@@ -3,6 +3,11 @@
 //网站地址: http://www.widerwill.com；
 //$Author: liuwenbohhh $
 //$Id: Lwb_conv 17155 2017-02-06 06:29:05Z $
+//bm, _ := lwb_cache.NewCache("memory", `"{....}"`)
+//	bm.Put("astaxie", 1, 10*time.Second)
+//	fmt.Println(bm.Get("astaxie"))
+//	fmt.Println(bm.IsExist("astaxie"))
+//	fmt.Println(bm.Delete("astaxie"))
 
 package lwb_cache
 
