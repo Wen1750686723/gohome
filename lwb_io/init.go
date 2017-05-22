@@ -37,6 +37,14 @@ func Writefile(mode int) {
 	}
 	// Hello World!
 }
+
+/**
+    *向文件中加数据没有则新建
+ 	* @access  filename  文件地址
+	* @access  data      数据
+	* @access  perm      文件权限
+	* @return  error     是否有错误
+*/
 func Writefileappend(filename string, data []byte, perm os.FileMode) error {
 
 	f, err := os.OpenFile(filename, os.O_WRONLY|os.O_CREATE|os.O_APPEND, perm)
@@ -54,6 +62,14 @@ func Writefileappend(filename string, data []byte, perm os.FileMode) error {
 	return err
 	// Hello World!
 }
+
+/**
+    *向文件中刷新加数据没有则新建
+ 	* @access  filename  文件地址
+	* @access  data      数据
+	* @access  perm      文件权限
+	* @return  error     是否有错误
+*/
 func Writefileclear(filename string, data []byte, perm os.FileMode) error {
 	f, err := os.OpenFile(filename, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, perm)
 

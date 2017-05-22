@@ -1,9 +1,9 @@
 package main
 
 import (
-	"test/lwb_io"
+	"fmt"
 )
 
 func main() {
-	lwb_io.Writefile(0)
+	fmt.Print('s' % byte())
 }
