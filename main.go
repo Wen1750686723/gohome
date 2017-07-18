@@ -2,12 +2,11 @@ package main
 
 import (
 	"fmt"
-	"test/lwb_config"
+	"test/lwb_time"
 )
 
 func main() {
-	myConfig := new(lwb_config.Config)
-	myConfig.InitConfig("Test.txt")
-	fmt.Println(myConfig.Readone("path", "err", "ere"))
-	fmt.Printf("%v", myConfig.Mymap)
+	fmt.Print(lwb_time.Getunix("2017-03-08", ""))
+	//获取本地location
+
 }
