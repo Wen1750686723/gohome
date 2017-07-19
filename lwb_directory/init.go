@@ -10,12 +10,15 @@ package lwb_directory
  * $Author: liuwenbohhh $
  * $Id: Lwb_directory 17155 2017-02-06 06:29:05Z $
 func main() {
- files_ch := make(chan *FileInfo, 100)
- go WalkFiles("E:\\study", ".doc", files_ch) //在一个独立的 goroutine 中遍历文件
- WriteFiles("E:\\study.bak", files_ch)
+	files_ch := make(chan *lwb_directory.FileInfo, 100)
+	go lwb_directory.WalkFiles("/Users/liuwenbo/Applications/Go/src/myproject", "", files_ch) //在一个独立的 goroutine 中遍历文件
+	lwb_directory.WriteFiles("/Users/liuwenbo/Applications/Go/src/myproject1", files_ch)
+	//获取本地location
+
 }
 */
 import (
+	"fmt"
 	"io"
 	"log"
 	"os"
@@ -50,6 +53,16 @@ func WalkFiles(srcDir, suffix string, c chan<- *FileInfo) {
 			log.Println("[E]", err)
 		}
 		fileInfo := &FileInfo{}
+		filenames, _ := filepath.Rel(srcDir, f)
+		if []byte(filenames)[0] == '.' {
+			fmt.Println("是点")
+			return nil
+		}
+
+		//		if strings.Contains(filenames, ".git") {
+		//			fmt.Println("是git文件")
+		//			return nil
+		//		}
 		if strings.HasSuffix(strings.ToUpper(fi.Name()), suffix) { //匹配文件
 			if fh, err := os.OpenFile(f, os.O_RDONLY, os.ModePerm); err != nil {
 				log.Println("[E]", err)
@@ -82,7 +95,7 @@ func WriteFiles(dstDir string, c <-chan *FileInfo) {
 	for f := range c {
 		if fi, err := os.Stat(f.RelPath); os.IsNotExist(err) { //目标不存在
 			if f.IsDir {
-				if err := os.MkdirAll(f.RelPath, os.ModeDir); err != nil {
+				if err := os.MkdirAll(f.RelPath, 0777); err != nil {
 					log.Println("[E]", err)
 				}
 			} else {

@@ -57,3 +57,13 @@ func RandomCreateBytes(n int, alphabets ...byte) []byte {
 	}
 	return bytes
 }
+
+/**
+    *得到随机数字
+ 	* @access  n    随机数字最大值
+	* @return       随机数字
+*/
+func Getrandom(maxnum int) int {
+	r.Seed(time.Now().UnixNano())
+	return r.Intn(maxnum)
+}
