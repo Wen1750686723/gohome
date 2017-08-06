@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"test/lwb_rand"
+	"test/lwb_string"
 )
 
 func main() {
-	fmt.Println(lwb_rand.Getrandom(200))
+	lwb_string
 }
